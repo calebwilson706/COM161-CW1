@@ -210,3 +210,6 @@ ENV/
 
 # mkdocs documentation
 /site
+
+_trial_temp
+_trial_temp.*
