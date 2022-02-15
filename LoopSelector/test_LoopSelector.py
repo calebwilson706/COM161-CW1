@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import patch
 from LoopSelector import get_input_prompt, select_loop_type, select_loop_type_or_end_game
-from Shared.Loop import Loop
+from Shared.LoopType import LoopType
 
 
 class TestLoopSelector(TestCase):
@@ -20,25 +20,25 @@ class TestLoopSelector(TestCase):
     def test_selector_selects_for_loop(self, mock):
         result = select_loop_type()
 
-        self.assertEqual(result, Loop.FOR)
+        self.assertEqual(result, LoopType.FOR)
 
     @patch('builtins.input', return_value="2")
     def test_selector_selects_while_loop(self, mock):
         result = select_loop_type()
 
-        self.assertEqual(result, Loop.WHILE)
+        self.assertEqual(result, LoopType.WHILE)
 
     @patch('builtins.input', return_value="1")
     def test_selector_selects_for_loop_at_end_of_game(self, mock):
         result = select_loop_type_or_end_game()
 
-        self.assertEqual(result, Loop.FOR)
+        self.assertEqual(result, LoopType.FOR)
 
     @patch('builtins.input', return_value="2")
     def test_selector_selects_while_loop_at_end_of_game(self, mock):
         result = select_loop_type_or_end_game()
 
-        self.assertEqual(result, Loop.WHILE)
+        self.assertEqual(result, LoopType.WHILE)
 
     @patch('builtins.input', return_value="stop")
     def test_selector_selects_None_at_end_of_game(self, mock):
