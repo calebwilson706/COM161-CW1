@@ -3,8 +3,7 @@ from GenerateListWithWhileLoop import generate_list_with_while_loop
 from unittest.mock import patch
 
 
-class TestGenerateWithWhileLoop(TestCase):
-
+class TestGenerateListWithWhileLoop(TestCase):
     @patch("builtins.input", return_value="")
     def testShouldReturnEmptyList(self, mocked_input):
         result = generate_list_with_while_loop()
@@ -15,7 +14,7 @@ class TestGenerateWithWhileLoop(TestCase):
     def testShouldCallInputFunction(self, mocked_input):
         generate_list_with_while_loop()
 
-        self.assertTrue(mocked_input.called)
+        mocked_input.assert_called_once_with("Enter string (leave blank to terminate): ")
 
     @patch("builtins.input", side_effect=["1", ""])
     def testShouldTerminateAfterEmptyString(self, mocked_input):
