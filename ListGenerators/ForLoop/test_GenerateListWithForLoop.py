@@ -8,7 +8,7 @@ class TestGenerateListWithForLoop(TestCase):
     def testShouldRequestAmountOfInputs(self, mock_input):
         generate_list_with_for_loop()
 
-        mock_input.assert_called_once_with("How many strings do you want to enter?")
+        mock_input.assert_called_once_with("How many strings do you want to enter? ")
 
     @patch("builtins.input", return_value="0")
     def testShouldReturnTheEmptyList(self, mock_input):

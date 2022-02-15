@@ -1,5 +1,5 @@
 def get_amount_of_inputs():
-    return int(input("How many strings do you want to enter?"))
+    return int(input("How many strings do you want to enter? "))
 
 
 def get_next_input(index):
