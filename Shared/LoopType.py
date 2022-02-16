@@ -2,6 +2,8 @@ from enum import Enum
 from ListGenerators.WhileLoop.GenerateListWithWhileLoop import generate_list_with_while_loop
 from ListGenerators.ForLoop.GenerateListWithForLoop import generate_list_with_for_loop
 from Outputs.Shared.OutputNaturalNumberCountStatistics import output_natural_number_count_statistics
+from Outputs.ForLoopSpecific.OutputTotalOfNaturalNumbersInList import output_total_of_natural_numbers_in_list
+
 
 class LoopType(Enum):
     FOR = 1
@@ -21,3 +23,6 @@ class LoopType(Enum):
 
     def output_statistics(self, generated_list):
         output_natural_number_count_statistics(generated_list)
+
+        if self == LoopType.FOR:
+            output_total_of_natural_numbers_in_list(generated_list)
