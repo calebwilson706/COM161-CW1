@@ -29,3 +29,25 @@ class TestListGenerator(TestCase):
         LoopType.FOR.generate_list()
 
         mock_for_loop_generator.assert_called_once()
+
+
+class TestStatisticsOutput(TestCase):
+    @patch("LoopType.output_natural_number_count_statistics")
+    @patch("builtins.input", return_value="0")
+    def testShouldOutputSharedStatisticsWhenForIsSelected(self, mock, mock_input):
+        loop_type = LoopType.FOR
+        generated_list = loop_type.generate_list()
+
+        loop_type.output_statistics(generated_list)
+
+        mock.assert_called_once()
+
+    @patch("LoopType.output_natural_number_count_statistics")
+    @patch("builtins.input", return_value="")
+    def testShouldOutputSharedStatisticsWhenWhileIsSelected(self, mock, mock_input):
+        loop_type = LoopType.WHILE
+        generated_list = loop_type.generate_list()
+
+        loop_type.output_statistics(generated_list)
+
+        mock.assert_called_once()
