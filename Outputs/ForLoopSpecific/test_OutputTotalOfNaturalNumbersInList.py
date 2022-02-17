@@ -17,8 +17,7 @@ class TestOutputNaturalNumberCountStatistics(TestCase):
         self.assertEqual(mock_print.call_count, 1)
 
     @patch("builtins.print")
-    @patch("OutputTotalOfNaturalNumbersInList.get_total_of_natural_numbers_in_list", return_value=1)
-    def test_should_output_correct_text_with_total(self, _, mock_print):
+    def test_should_output_correct_text(self, mock):
         output_total_of_natural_numbers_in_list(["1"])
 
-        mock_print.assert_called_once_with("Total of the positive numbers entered:", 1)
+        mock.assert_called_once_with("Total of the positive numbers entered:", 1)
