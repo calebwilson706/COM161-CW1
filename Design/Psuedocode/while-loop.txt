@@ -1,0 +1,10 @@
+result = []
+input = ""
+
+while input != code_to_stop:
+    input = get_next_input()
+    result.add(
+        input
+    )
+
+return result

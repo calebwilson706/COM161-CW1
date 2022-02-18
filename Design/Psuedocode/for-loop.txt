@@ -1,0 +1,9 @@
+amount_of_strings = get_amount_of_strings_from_user()
+result = []
+
+for index in range(amount_of_strings):
+    result.add(
+        get_next_string_from_user()
+    )
+
+return result

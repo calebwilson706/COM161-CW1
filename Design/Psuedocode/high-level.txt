@@ -1,0 +1,15 @@
+loop_type = user_selects_a_loop_type()
+
+if (loop_type == While):
+    result = generate_list_with_while_loop()
+else:
+    result = generate_list_with_for_loop()
+
+print_amount_of_natural_numbers_in(result)
+
+print_amount_of_other_strings_in(result)
+
+if (loop_type == For):
+    print_total_of_natural_numbers_in(result)
+else:
+    print_difference_between_biggest_and_smallest_natural_numbers_in(result)
